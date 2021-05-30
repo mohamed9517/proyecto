@@ -1,4 +1,4 @@
-<?php require_once '../back/adminCategoriaBack.php' ?>
+<?php require_once '../back/adminPedidoBack.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administracion categorias</title>
+    <title>Administracion pedidos</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
 
 </head>
@@ -28,7 +28,7 @@
     <?php include_once('header.php'); ?>
     <div class="container mt-4">
         <div class="row">
-            <h1>Administracion de categorias</h1>
+            <h1>Administracion de pedidos</h1>
 
         </div>
     </div>
@@ -47,36 +47,34 @@
                 <?php endif ?>
 
                 <?php
-                $resultado = allCategorias($conexion);
+                $resultado = allPedidos($conexion);
 
                 ?>
-                <form action="../back/adminCategoriaBack.php" method="POST">
+                <form action="../back/adminPedidoBack.php" method="POST">
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <table class="table table-dark">
                         <thead>
                             <tr>
-                                <th>Nombre</th>
-                                <th>Descripcion</th>
-                                <th>Imagen</th>
+                                <th>Direccion</th>
+                                <th>Codigo postal</th>
+                                <th>Telefono</th>
+                                <th>Provincia</th>
+                                <th>Comunidad Autonoma</th>
+                                <th>id pedido</th>
 
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <th><input type="text" name="nombre" placeholder="Introduce el nombre de la categoria" value="<?php echo $nombre ?>"> </th>
-                                <th><input type="text" name="descripcion" id="" placeholder="Introduce el nombre de la Imagen" value="<?php echo $descripcion ?>"></th>
-                                <th><input type="text" name="imagen" placeholder="Introduce el descripcion" value="<?php echo $imagen ?>"> </th>
-
-
+                                <th><input type="text" name="direccion" placeholder="" value="<?php echo $direccion ?>"> </th>
+                                <th><input type="text" name="cp" id="" placeholder="" value="<?php echo $cp ?>"></th>
+                                <th><input type="text" name="telefono" placeholder="" value="<?php echo $telefono ?>"> </th>
+                                <th><input type="text" name="provincia" placeholder="" value="<?php echo $provincia ?>"> </th>
+                                <th><input type="text" name="comunidadA" placeholder="" value="<?php echo $comunidadA ?>"> </th>
                                 <?php if ($editar == true) {
-
                                 ?>
                                     <th><button type="submit" name="editar" class="btn btn-info mt-3">Editar</button></th>
-
-                                <?php } else { ?>
-
-                                    <th><button type="submit" name="save" class="btn btn-primary">Añadir</button></th>
-                                <?php } ?>
+                                <?php }  ?>
                             </tr>
 
                         </tbody>
@@ -85,12 +83,17 @@
                         ?>
                             <tbody>
                                 <tr>
-                                    <th><?php echo $row['nombre_cat']; ?></th>
-                                    <th> <textarea cols="30" rows="1"> <?php echo $row['descripcion_cat']; ?> </textarea> </th>
-                                    <th><?php echo $row['imgane_cat']; ?></th>
+                                    <th><?php echo $row['direccion']; ?></th>
+                                    <th><?php echo $row['cp']; ?> </th>
+                                    <th><?php echo $row['telefono']; ?></th>
+                                    <th><?php echo $row['provincia']; ?></th>
+                                    <th><?php echo $row['comunidadA']; ?></th>
+                                    <th><?php echo $row['comunidadA']; ?></th>
+                                    <th><?php echo $row['id_pedido']; ?></th>
+
                                     <th>
-                                        <a href="adminCategoria.php?edit=<?php echo $row['id_categoria'] ?>" class="btn btn-info">Editar</a>
-                                        <a href="../back/adminCategoriaBack.php?elimi=<?php echo $row['id_categoria'] ?>" class="btn btn-danger" onclick="return confirmDelet()">Eliminar</a>
+                                        <a href="adminPedidos.php?edit=<?php echo $row['id_pedido'] ?>" class="btn btn-info">Editar</a>
+                                        <a href="../back/adminPedidoBack.php?elimi=<?php echo $row['id_pedido'] ?>" class="btn btn-danger" onclick="return confirmDelet()">Eliminar</a>
                                 </tr>
                             </tbody>
                         <?php } ?>

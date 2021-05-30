@@ -19,6 +19,21 @@ session_start();
     <?php
     include_once 'header.php'
     ?>
+    <div class="container mt-2">
+        <div class="row">
+
+
+            <nav aria-label="breadcrumb ">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a style="text-decoration: none; color: black; " href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a style="text-decoration: none; color: black; " href="#">Mi cuenta</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Editar datos</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+
     <?php
     // Consulta al usuario seleccionando segun el id de la session, en caso de no exite 
     $id = $_GET['edit'];
@@ -29,7 +44,7 @@ session_start();
     <?php
     while ($row = $resultado->fetch_assoc()) {
     ?>
-        <div class="container mt-5 ">
+        <div class="container mt-2 ">
             <div class="row">
                 <h2>Editar perfil</h2>
             </div>
@@ -68,6 +83,7 @@ session_start();
                 </div>
                 <div class="col-8 col-sm-8 text-center">
                     <img src="../img/funko.png" alt="" style="height: 500px;">
+                    <p> <a href=""> ELIMINAR CUENTA </a></p>
                 </div>
 
             </div>

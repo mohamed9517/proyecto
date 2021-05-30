@@ -46,5 +46,10 @@ function allProductosLimit($conexion){
     return $result;
 
 }
+function allProductosLimit1($conexion){
+    $result=$conexion->query("SELECT * FROM producto  limit 2");
+    return $result;
+
+}
 
 ?>

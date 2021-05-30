@@ -80,6 +80,24 @@ include_once('../bd/DAOProducto.php');
             </div>
         </div>
     </nav>
+    <!-- Breadcrumbs -->
+    <div class="container  mt-2">
+        <div class="row">
+            <div aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <?php
+                    $id = $_GET['id'];
+                    $resultado = consultaCategoria($conexion, $id);
+                    while ($row = mysqli_fetch_array($resultado)) {
+                    ?>
+                        <li class="breadcrumb-item"><a href="#"><?php echo $row['nombre_cat'] ?></a></li>
+                    <?php } ?>
+                </ol>
+            </div>
+        </div>
+    </div>
+
 
     <div class="container">
 
@@ -89,7 +107,7 @@ include_once('../bd/DAOProducto.php');
             $resultado = consultaCategoria($conexion, $id);
             while ($row = mysqli_fetch_array($resultado)) {
             ?>
-                <div class="col-12 bg-primary mt-5 mb-3 h-75">
+                <div class="col-12  mt-2 mb-3 h-75" style="background: #f3f2f7;">
 
                     <h2>Funkos de <?php echo $row['nombre_cat'] ?></h2>
                 </div>
@@ -98,21 +116,21 @@ include_once('../bd/DAOProducto.php');
     </div>
     <div class="container">
         <div class="row">
-                <?php
-                $id = $_GET['id'];
-                $resultado = consultaProductoCategoria($conexion, $id);
-                while ($row = mysqli_fetch_array($resultado)) {
-                ?>
-                    <div class="card col-md-3 m-1" style="width: 18rem;">
-                        <img class="card-img-top" src="../img/imgProductos/<?php echo $row['imagen1_producto']; ?>" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo $row['nombre_producto'] ?></h5>
-                            <p class="card-text">$<?php echo $row['precio_producto'] ?></p>
-                            <a href="descripcionVideojuego.php?id=" class="btn  col-md-12 rounded border" style="background-color: #f3f2f7;">Ver detalles</a>
-                        </div>
+            <?php
+            $id = $_GET['id'];
+            $resultado = consultaProductoCategoria($conexion, $id);
+            while ($row = mysqli_fetch_array($resultado)) {
+            ?>
+                <div class="card col-md-3 m-1" style="width: 18rem;">
+                    <img class="card-img-top" src="../img/imgProductos/<?php echo $row['imagen1_producto']; ?>" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $row['nombre_producto'] ?></h5>
+                        <p class="card-text">$<?php echo $row['precio_producto'] ?></p>
+                        <a href="descripcionProducto.php?id=<?php echo $row['id_producto'] ?>" class="btn  col-md-12 rounded border" style="background-color: #f3f2f7;">Ver detalles</a>
                     </div>
-                <?php } ?>
-            
+                </div>
+            <?php } ?>
+
         </div>
     </div>
 

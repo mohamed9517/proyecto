@@ -11,25 +11,27 @@
 
 </head>
 <script type="text/javascript">
+    function confirmDelet() {
 
-function confirmDelet(){
+        var respuest = confirm("Estas seguro que quieres eliminar la categoria");
+        if (respuest == true) {
+            return true;
 
-    var respuest= confirm("Estas seguro que quieres eliminar la categoria");
-    if(respuest == true){
-        return true;
+        } else {
+            return false;
+        }
 
-    }else{
-        return false;
     }
-
-}
-
 </script>
 
-<body>
+<body style="background-color: #f3f2f7;">
     <?php include_once('header.php'); ?>
-
-    <div class="container-fluid  m-2" style="font-size: 14px;">
+    <div class="container mt-4">
+        <div class="row">
+            <h1>Adminstracion Usuario</h1>
+        </div>
+    </div>
+    <div class="container-fluid  m-2" style="font-size: 13.5px;">
         <div class="row">
 
             <?php
@@ -53,7 +55,7 @@ function confirmDelet(){
                 <input type="hidden" name="id" value="<?php echo $id; ?>">
                 <table class="table table-dark">
                     <thead>
-                        <tr >
+                        <tr>
                             <th>Usuario</th>
                             <th>Password</th>
                             <th>Nombre</th>
@@ -110,7 +112,7 @@ function confirmDelet(){
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
 </body>
 
 </html>

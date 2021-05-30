@@ -1,4 +1,5 @@
-<?php require_once '../back/adminCategoriaBack.php' ?>
+</html>
+<?php require_once '../back/adminComentarioBack.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,13 +29,13 @@
     <?php include_once('header.php'); ?>
     <div class="container mt-4">
         <div class="row">
-            <h1>Administracion de categorias</h1>
-
+            <h1>Administracion de comentarios</h1>
         </div>
     </div>
-    <div class="container ">
+    <div class="container mt-4">
         <div class="row">
-            <div class="com-md-12">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+
                 <?php
                 if (isset($_SESSION['mensaje'])) :
                 ?>
@@ -47,25 +48,36 @@
                 <?php endif ?>
 
                 <?php
-                $resultado = allCategorias($conexion);
+                $resultado = allComentario($conexion);
 
                 ?>
-                <form action="../back/adminCategoriaBack.php" method="POST">
+                <form action="../back/adminComentarioBack.php" method="POST">
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
-                    <table class="table table-dark">
+                    <table class="table table-striped table-dark" >
                         <thead>
                             <tr>
-                                <th>Nombre</th>
-                                <th>Descripcion</th>
-                                <th>Imagen</th>
+                                <th>Nombre usuario</th>
+                                <th>Email</th>
+                                <th>Comentario</th>
+                                <th>Fecha comentario</th>
+                                <th>Estado</th>
 
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <th><input type="text" name="nombre" placeholder="Introduce el nombre de la categoria" value="<?php echo $nombre ?>"> </th>
-                                <th><input type="text" name="descripcion" id="" placeholder="Introduce el nombre de la Imagen" value="<?php echo $descripcion ?>"></th>
-                                <th><input type="text" name="imagen" placeholder="Introduce el descripcion" value="<?php echo $imagen ?>"> </th>
+                                <th><input type="text" name="nombre" value="<?php echo $nombre ?>"></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>
+                                    <select name="estado" id="estado">
+                                        <option name="estado">visible </option>
+                                        <option name="estado">invisible</option>
+
+
+                                    </select>
+                                </th>
 
 
                                 <?php if ($editar == true) {
@@ -73,10 +85,9 @@
                                 ?>
                                     <th><button type="submit" name="editar" class="btn btn-info mt-3">Editar</button></th>
 
-                                <?php } else { ?>
-
-                                    <th><button type="submit" name="save" class="btn btn-primary">Añadir</button></th>
                                 <?php } ?>
+
+
                             </tr>
 
                         </tbody>
@@ -85,12 +96,16 @@
                         ?>
                             <tbody>
                                 <tr>
-                                    <th><?php echo $row['nombre_cat']; ?></th>
-                                    <th> <textarea cols="30" rows="1"> <?php echo $row['descripcion_cat']; ?> </textarea> </th>
-                                    <th><?php echo $row['imgane_cat']; ?></th>
+                                    <th><?php echo $row['nombre']; ?></th>
+                                    <th><?php echo $row['email']; ?> </th>
+                                    <th><?php echo $row['comentario']; ?></th>
+                                    <th><?php echo $row['fecha_comentario']; ?></th>
                                     <th>
-                                        <a href="adminCategoria.php?edit=<?php echo $row['id_categoria'] ?>" class="btn btn-info">Editar</a>
-                                        <a href="../back/adminCategoriaBack.php?elimi=<?php echo $row['id_categoria'] ?>" class="btn btn-danger" onclick="return confirmDelet()">Eliminar</a>
+                                        <?php echo $row['estado'] ?>
+                                    <th>
+
+                                        <a href="adminComentarios.php?edit=<?php echo $row['id_comentarios'] ?>" class="btn btn-info">Editar</a>
+                                        <a href="../back/adminComentarioBack.php?elimi=<?php echo $row['id_comentarios'] ?>" class="btn btn-danger" onclick="return confirmDelet()">Eliminar</a>
                                 </tr>
                             </tbody>
                         <?php } ?>
