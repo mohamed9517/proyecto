@@ -51,5 +51,11 @@ function allProductosLimit1($conexion){
     return $result;
 
 }
+function allProductosEnStock($conexion){
+    $result=$conexion->query("SELECT * FROM producto  where stock_producto>=1");
+    return $result;
+
+}
+
 
 ?>

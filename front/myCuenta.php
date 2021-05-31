@@ -2,6 +2,9 @@
 include_once('../bd/DAOUsuario.php');
 include_once('../bd/conexion.php');
 session_start();
+if (!isset($_SESSION['id_usuario'])) {
+  header('Location: ../index.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,7 +71,9 @@ session_start();
 
               </div>
             </div>
-            <?php }else{} ?>
+            <?php }else{
+              
+            } ?>
 
 
 

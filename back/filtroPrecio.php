@@ -12,14 +12,14 @@ if (isset($_POST["action"])) {
             $output .= '
 
            
-            <div class="card col-md-3 col-sm-4 col-xm-6 mt-2 m-1" style="width: 13rem;">
-            <img class="card-img-top" src="../img/imgProductos/' . $row->imagen1_producto . '" alt="Card image cap" style="width: 200px;">
+            <div class="card col-md-3 col-sm-4 col-xm-6 mt-2 m-1" style="width: 14rem;">
+            <img class="card-img-top" src="../img/imgProductos/' . $row->imagen1_producto . '" alt="Card image cap" style="width: 300px;">
             <div class="card-body">
                 <h5 class="card-title">' . $row->nombre_producto . '</h5>
                 <p class="card-text">$' . $row->precio_producto . '</p>
                 <a href="../front/descripcionProducto.php?id=' . $row->id_producto . '" class="btn  col-md-12 rounded border" style="background-color: #f3f2f7;">Ver detalles</a>
             </div>
-        </div>
+             </div>
             ';
         }
     } else {

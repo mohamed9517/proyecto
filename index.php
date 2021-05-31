@@ -16,6 +16,9 @@ session_start();
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/indexcss.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="icon" type="image/png" href="img/funkopng.png" />
+
+
 
 </head>
 
@@ -34,7 +37,7 @@ session_start();
 
 
 
-            
+
             <div class="collapse navbar-collapse col-lg-7" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                     <li class="nav-item dropdown mr-2">
@@ -68,9 +71,8 @@ session_start();
                             <strong> DESTACADOS</strong>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                            <li><a class="dropdown-item" href="#">Mas vendidos</a></li>
-                            <li><a class="dropdown-item" href="#">Nuevos</a></li>
-                            <li><a class="dropdown-item" href="#">En stock</a></li>
+                            <li><a class="dropdown-item" href="front/nuevos.php">Ultimos añadidos</a></li>
+                            <li><a class="dropdown-item" href="front/enStock.php">En stock</a></li>
                         </ul>
                     </li>
 
@@ -85,29 +87,37 @@ session_start();
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
                     <?php if (isset($_SESSION['id_usuario'])) {
                     ?>
-                        <li class="nav-item mr-3 ">
-                            <a class="nav-link active text-light" aria-current="page" href="front/myCuenta.php"><img src="img/iconologin.png" alt="" style="width: 25px;"></a>
+                        <li class="nav-item mr-2 ">
+                            <a class="nav-link active text-light" aria-current="page" href="front/myCuenta.php"><img src="img/funkopng.png" alt="" style="width: 30px;"></a>
                         </li>
 
                     <?php } else { ?>
-                        <li class="nav-item mr-3">
-                            <a class="nav-link active text-light" aria-current="page" href="front/login.php"><img src="img/iconologin.png" alt="" style="width: 25px;"></a>
+                        <li class="nav-item mr-2">
+                            <a class="nav-link active text-light" aria-current="page" href="front/login.php"><img src="img/login001.png" alt="" style="width: 25px;"></a>
                         </li>
                     <?php } ?>
 
 
 
-                    <li class="nav-item mr-3">
+                    <li class="nav-item">
+                        <a style="float: right;" class="nav-link text-light" href="front/cesta.php"> <img src="img/cesta1.png" alt="" style="width: 25px;"> </a>
+                    </li>
+                    <li class="nav-item mr-2">
+                        <span style="color: white;"><?php
+                        if (isset($_SESSION['cesta'])) {
+                         echo count($_SESSION['cesta']);
+                        } else {
+                       
+                         }
 
-                        <a class="nav-link text-light" href="#"><img src="img/cesta1.png" alt="" style="width: 25px;"></a>
+                        ?></span>
                     </li>
 
-
                     <li class="nav-item mr-3">
-                    <a class="nav-link text-light" href="#"><img src="img/iconoIdioma2.png" alt="" style="width: 25px;">  </a>
-                    
+                        <a class="nav-link text-light" href="#"><img src="img/iconoIdioma2.png" alt="" style="width: 25px;"> </a>
+
                     </li>
-                    
+
                 </ul>
             </div>
 
@@ -158,7 +168,10 @@ session_start();
 
             ?>
                 <div class=" col-sm-1.7 col-xm-1.7 card mr-1  mt-1 mb-1 " style="width: 13.3rem;">
+                    <a href="front/filtroCategoria.php?id=<?php echo $row['id_categoria'] ?>">
                     <img class="card-img-top" src="img/<?php echo $fila['imgane_cat']; ?>" alt="Card image cap">
+
+                    </a>
                 </div>
 
             <?php } ?>
@@ -229,7 +242,7 @@ session_start();
 
             ?>
 
-                <div class="card col-md-3 col-sm-6 col-xm-6 mt-2" style="width: 18rem;">
+                <div class="card col-md-3 col-sm-6 col-xs-6 mt-2" style="width: 18rem;">
                     <img class="card-img-top" src="img/imgProductos/<?php echo $fila['imagen1_producto']; ?>" alt="Card image cap">
                     <div class="card-body">
                         <input type="hidden" class="id" value="<?php echo $fila['id_producto'] ?>">
@@ -275,9 +288,9 @@ session_start();
                 <strong>
                     <h5 class="mb-4" style="color: black;">CUENTA</h5>
                 </strong>
-                <p><a class="text-dark" href="myCuenta.php">Mi Cuenta</a></p>
-                <p><a class="text-dark" href="registrar.php">Registrar</a></p>
-                <p><a class="text-dark" href="">Login</a></p>
+                <p><a class="text-dark" href="front/myCuenta.php">Mi Cuenta</a></p>
+                <p><a class="text-dark" href="front/registrar.php">Registrar</a></p>
+                <p><a class="text-dark" href="front/login.php">Login</a></p>
             </div>
             <div class="col-md-2 mt-5 ">
                 <strong>

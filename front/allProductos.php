@@ -47,26 +47,21 @@
 
 
             <div class="col-md-2">
-
                 <div class="row">
                     <div class="col-12" style="display: flex; justify-content: center;">
                         <p>Filtros</p>
                     </div>
                 </div>
-
-
                 <div class="list-group">
                     <h5>Price</h5>
                     <input type="hidden" id="hidden_minimum_price" value="10" />
                     <input type="hidden" id="hidden_maximum_price" value="50" />
                     <p id="price_show">10$ - 50$</p>
                     <div id="price_range"></div>
-                    <h3 class="mt-1"> Mas valorados </h3>
                 </div>
             </div>
 
             <div class="col-md-10" style="background-color: #f3f2f7;">
-                <br />
                 <div class="row filter_data">
                 </div>
             </div>

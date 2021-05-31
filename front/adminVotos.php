@@ -8,8 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administracion Votos</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 </head>
 <script type="text/javascript">
 </script>
@@ -44,7 +42,7 @@
                 ?>
                 <form action="../back/adminVotoBack.php" method="POST">
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
-                    <table class="table table-dark" >
+                    <table class="table table-dark">
                         <thead>
                             <tr>
                                 <th>id del voto</th>
@@ -65,7 +63,8 @@
 
                                     <th><?php echo $row['nombre_producto']; ?> </th>
                                     <th>
-                                        <a href="../back/adminVotoBack.php?elimi=<?php echo $row['id'] ?>" class="btn btn-danger">Eliminar</a>
+                                        <button confirm="alertaEliminacio();"><a href="../back/adminVotoBack.php?elimi=<?php echo $row['id'] ?>" class="btn btn-danger">Eliminar</a></button>
+                                        <!-- <a href="../back/adminVotoBack.php?elimi=<?php echo $row['id'] ?>" class="btn btn-danger">Eliminar</a> -->
                                 </tr>
                             </tbody>
                         <?php } ?>
@@ -74,8 +73,34 @@
             </div>
         </div>
     </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
 </body>
 
 </html>
+<script>
+    function alertaEliminacio() {
+        Swal.fire({
+            title: 'Estas seguro de eliminar?',
+            text: "Vas a eliminar el voto",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, borralo!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Eliminado!',
+                    'El producto fue eliminado correctamente',
+                    'success'
+                )
+            }
+        })
+
+
+
+    }
+</script>

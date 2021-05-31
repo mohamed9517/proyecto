@@ -2,6 +2,8 @@
 
 require_once('../bd/conexion.php');
 require_once('../bd/DAOPedidos.php');
+require_once('../bd/DAOCategoria.php');
+
 session_start();
 $direccion = '';
 $cp = '';

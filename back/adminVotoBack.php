@@ -6,7 +6,7 @@ session_start();
 
 if (isset($_GET['elimi'])) {
    $id = $_GET['elimi'];
-   eliminarCategoria($conexion, $id);
+   eliminarVotos($conexion, $id);
    $_SESSION['mensaje'] = "Has eliminado el voto";
    $_SESSION['tipo-mensaje'] = "danger";
 
