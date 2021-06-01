@@ -30,14 +30,10 @@ session_start();
 
 
 
-            <a class="navbar-brand text-light mr-2 " href="#"><img src="img/LogoF16.png" alt="logo ArtFunko" style="height: 40px; width: 60px;"> </a>
+            <a class="navbar-brand text-light mr-2 " href="index.php"><img src="img/LogoF16.png" alt="logo ArtFunko" style="height: 40px; width: 60px;"> </a>
             <button class="navbar-toggler  " type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon text-white"></span>
             </button>
-
-
-
-
             <div class="collapse navbar-collapse col-lg-7" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                     <li class="nav-item dropdown mr-2">
@@ -291,6 +287,8 @@ session_start();
                 <p><a class="text-dark" href="front/myCuenta.php">Mi Cuenta</a></p>
                 <p><a class="text-dark" href="front/registrar.php">Registrar</a></p>
                 <p><a class="text-dark" href="front/login.php">Login</a></p>
+                <p><a class="text-dark" href="front/sitemap.php">Mapa del sitio</a></p>
+
             </div>
             <div class="col-md-2 mt-5 ">
                 <strong>

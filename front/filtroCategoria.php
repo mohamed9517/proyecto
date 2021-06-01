@@ -3,7 +3,10 @@ include_once('../bd/DAOCategoria.php');
 include_once('../bd/conexion.php');
 include_once('../bd/DAOProducto.php');
 
+if(!isset($_GET['id'])){
+header('Location: ../index.php');
 
+}
 
 ?>
 <!DOCTYPE html>

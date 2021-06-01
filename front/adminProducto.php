@@ -86,11 +86,8 @@
                             <a class="nav-link active text-light" aria-current="page" href="login.php"><img src="../img/login001.png" alt="" style="width: 25px;"></a>
                         </li>
                     <?php } ?>
-
-
-
                     <li class="nav-item">
-                        <a style="float: right;" class="nav-link text-light" href="front/cesta.php"> <img src="../img/cesta1.png" alt="" style="width: 25px;"> </a>
+                        <a class="nav-link text-light" href="front/cesta.php"> <img src="../img/cesta1.png" alt="" style="width: 25px;"> </a>
                     </li>
                     <li class="nav-item mr-2">
                         <span style="color: white;"><?php
@@ -101,39 +98,14 @@
 
                                                     ?></span>
                     </li>
-
                     <li class="nav-item mr-3">
                         <a class="nav-link text-light" href="#"><img src="../img/iconoIdioma2.png" alt="" style="width: 25px;"> </a>
 
                     </li>
-
                 </ul>
             </div>
-
         </div>
-
     </nav>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <div class="container mt-4">
         <div class="row">
             <h1>Administracion de productos</h1>
@@ -141,7 +113,7 @@
     </div>
     <div class="container" style="display: flex;">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 col-sm-12 col-ms-12">
                 <?php
                 if (isset($_SESSION['mensaje'])) :
                 ?>
@@ -256,6 +228,63 @@
 
             </div>
         </div>
+    </div>
+    <!-- El footer de la pagina -->
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <hr>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-bottom: 100px; background-color: #f3f2f7;">
+
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-2  col-sm-8 col-xs-12 mt-5 ">
+            <strong>
+                <h5 class="mb-4" style="color: black;">CUENTA</h5>
+            </strong>
+            <p><a class="text-dark" href="myCuenta.php">Mi Cuenta</a></p>
+            <p><a class="text-dark" href="registrar.php">Registrar</a></p>
+            <p><a class="text-dark" href="login.php">Login</a></p>
+        </div>
+        <div class="col-md-2 col-sm-8 col-xs-12 mt-5 ">
+            <strong>
+                <h5 class="mb-4">ASISTENCIA</h5>
+            </strong>
+            <p><a class="text-dark" href="">Términos y condiciones</a></p>
+            <p><a class="text-dark" href="">Políticas de privacidad</a></p>
+            <p><a class="text-dark" href="">Políticas de devoluciones</a></p>
+            <p><a class="text-dark" href="">Politicas de suscripción</a></p>
+        </div>
+        <div class="col-md-2 mt-5 col-sm-8 col-xs-12 ">
+            <strong>
+                <h5 class="mb-4">ACERCA DE FUNKO</h5>
+            </strong>
+            <p><a class="text-dark" href="">Sobre nosotras</a></p>
+            <p><a class="text-dark" href="">Funko blog</a></p>
+            <p><a class="text-dark" href="">Ubicación</a></p>
+            <p><a class="text-dark" href="">Noticias</a></p>
+        </div>
+        <div class="col-md-3 mt-5 col-sm-8 col-xs-12">
+            <strong>
+                <h5 class="mb-4">CONÉCTATE CON NOSOTROS</h5>
+            </strong>
+            <p><a class="text-dark" href="">Twitter</a></p>
+            <p><a class="text-dark" href="">Facebook</a></p>
+            <p><a class="text-dark" href="">Instagram</a></p>
+            <p><a class="text-dark" href="">Youtube</a></p>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="row" style="display: flex; justify-content: center;">
+        <img src="../img/iconoIdiomaN.png" alt="" width="25px;"><span>España</span>
+    </div>
+    <div class="mt-3" style="display: flex; justify-content: center;">
+        <p class="text-dark">Todos los derechos reservados</p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>

@@ -13,7 +13,7 @@
 <script type="text/javascript">
     function confirmDelet() {
 
-        var respuest = confirm("Estas seguro que quieres eliminar la categoria");
+        var respuest = confirm("Estas seguro que quieres eliminar el pedido");
         if (respuest == true) {
             return true;
 
@@ -79,7 +79,7 @@
                         </li>
                     <?php } ?>
                     <li class="nav-item">
-                        <a style="float: right;" class="nav-link text-light" href="front/cesta.php"> <img src="../img/cesta1.png" alt="" style="width: 25px;"> </a>
+                        <a class="nav-link text-light" href="front/cesta.php"> <img src="../img/cesta1.png" alt="" style="width: 25px;"> </a>
                     </li>
                     <li class="nav-item mr-2">
                         <span style="color: white;"><?php
@@ -106,7 +106,7 @@
     </div>
     <div class="container ">
         <div class="row">
-            <div class="com-md-12">
+            <div class="com-md-12 com-sm-12 com-xs-12" style="font-size: 11px;">
                 <?php
                 if (isset($_SESSION['mensaje'])) :
                 ?>
@@ -143,6 +143,8 @@
                                 <th><input type="text" name="telefono" placeholder="" value="<?php echo $telefono ?>"> </th>
                                 <th><input type="text" name="provincia" placeholder="" value="<?php echo $provincia ?>"> </th>
                                 <th><input type="text" name="comunidadA" placeholder="" value="<?php echo $comunidadA ?>"> </th>
+                                <th><input type="hidden" name="id_pedido" placeholder="" value="<?php echo $idPedido ?>"> </th>
+
                                 <?php if ($editar == true) {
                                 ?>
                                     <th><button type="submit" name="editar" class="btn btn-info mt-3">Editar</button></th>
@@ -160,12 +162,12 @@
                                     <th><?php echo $row['telefono']; ?></th>
                                     <th><?php echo $row['provincia']; ?></th>
                                     <th><?php echo $row['comunidadA']; ?></th>
-                                    <th><?php echo $row['comunidadA']; ?></th>
                                     <th><?php echo $row['id_pedido']; ?></th>
 
                                     <th>
                                         <a href="adminPedidos.php?edit=<?php echo $row['id_pedido'] ?>" class="btn btn-info">Editar</a>
-                                        <a href="../back/adminPedidoBack.php?elimi=<?php echo $row['id_pedido'] ?>" class="btn btn-danger" onclick="return confirmDelet()">Eliminar</a>
+
+                                    </th>
                                 </tr>
                             </tbody>
                         <?php } ?>
@@ -173,6 +175,63 @@
                 </form>
             </div>
         </div>
+    </div>
+    <!-- El footer de la pagina -->
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col-md-12">
+                <hr>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-bottom: 100px; background-color: #f3f2f7;">
+
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-2  col-sm-8 col-xs-12 mt-5 ">
+            <strong>
+                <h5 class="mb-4" style="color: black;">CUENTA</h5>
+            </strong>
+            <p><a class="text-dark" href="myCuenta.php">Mi Cuenta</a></p>
+            <p><a class="text-dark" href="registrar.php">Registrar</a></p>
+            <p><a class="text-dark" href="login.php">Login</a></p>
+        </div>
+        <div class="col-md-2 col-sm-8 col-xs-12 mt-5 ">
+            <strong>
+                <h5 class="mb-4">ASISTENCIA</h5>
+            </strong>
+            <p><a class="text-dark" href="">Términos y condiciones</a></p>
+            <p><a class="text-dark" href="">Políticas de privacidad</a></p>
+            <p><a class="text-dark" href="">Políticas de devoluciones</a></p>
+            <p><a class="text-dark" href="">Politicas de suscripción</a></p>
+        </div>
+        <div class="col-md-2 mt-5 col-sm-8 col-xs-12 ">
+            <strong>
+                <h5 class="mb-4">ACERCA DE FUNKO</h5>
+            </strong>
+            <p><a class="text-dark" href="">Sobre nosotras</a></p>
+            <p><a class="text-dark" href="">Funko blog</a></p>
+            <p><a class="text-dark" href="">Ubicación</a></p>
+            <p><a class="text-dark" href="">Noticias</a></p>
+        </div>
+        <div class="col-md-3 mt-5 col-sm-8 col-xs-12">
+            <strong>
+                <h5 class="mb-4">CONÉCTATE CON NOSOTROS</h5>
+            </strong>
+            <p><a class="text-dark" href="">Twitter</a></p>
+            <p><a class="text-dark" href="">Facebook</a></p>
+            <p><a class="text-dark" href="">Instagram</a></p>
+            <p><a class="text-dark" href="">Youtube</a></p>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="row" style="display: flex; justify-content: center;">
+        <img src="../img/iconoIdiomaN.png" alt="" width="25px;"><span>España</span>
+    </div>
+    <div class="mt-3" style="display: flex; justify-content: center;">
+        <p class="text-dark">Todos los derechos reservados</p>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>

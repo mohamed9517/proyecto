@@ -2,6 +2,7 @@
 
 require_once('../bd/conexion.php');
 require_once('../bd/DAOVotos.php');
+require_once('../bd/DAOCategoria.php');
 session_start();
 
 if (isset($_GET['elimi'])) {

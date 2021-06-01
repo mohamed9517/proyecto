@@ -2,6 +2,7 @@
 <?php
 require_once('../bd/conexion.php');
 require_once('../bd/DAOComentario.php');
+require_once('../bd/DAOCategoria.php');
 session_start();
 $nombre = '';
 $editar = false;

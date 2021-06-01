@@ -7,21 +7,12 @@ require_once('../bd/DAOCategoria.php');
 session_start();
 $direccion = '';
 $cp = '';
+$idPedido="";
 $telefono = '';
 $provincia ='';
 $comunidadA = '';
 $editar = false;
 $id = 0;
-
-
-if (isset($_GET['elimi'])) {
-   $id = $_GET['elimi'];
-   eliminarPedido($conexion, $id);
-   $_SESSION['mensaje'] = "Has eliminado un pedido";
-   $_SESSION['tipo-mensaje'] = "danger";
-
-   header('Location: ../front/adminPedidos.php');
-}
 
 if (isset($_GET['edit'])) {
    $id = $_GET['edit'];

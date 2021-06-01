@@ -16,6 +16,7 @@ function editarPedido($conexion,$direccion,$cp,$telefono,$provincia,$comunidadA,
     return $result;
 
 }
+// Eliminar el pedido
 function eliminarPedido($conexion,$id){
     $resu=$conexion->query("DELETE FROM pedido WHERE id_pedido=$id");
     return $resu;

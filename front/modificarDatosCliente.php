@@ -25,7 +25,7 @@ session_start();
 
             <nav aria-label="breadcrumb ">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a style="text-decoration: none; color: black; " href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a style="text-decoration: none; color: black; " href="../index.php">Home</a></li>
                     <li class="breadcrumb-item"><a style="text-decoration: none; color: black; " href="#">Mi cuenta</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Editar datos</li>
                 </ol>
@@ -40,7 +40,6 @@ session_start();
     $resultado = MostrarU($conexion, $id);
 
     ?>
-
     <?php
     while ($row = $resultado->fetch_assoc()) {
     ?>
@@ -57,7 +56,7 @@ session_start();
                         <input type="hidden" name="id" value="<?php echo $id; ?>">
                         <div class="form-group">
                             <strong><label>Usuario</label></strong>
-                            <input type="text" name="usua" class="form-control" placeholder="<?php echo $row['usuario'] ?>">
+                            <input type="text" name="usua" class="form-control" placeholder="<?php echo $row['usuario'] ?>" value="<?php echo $row['usuario'] ?>">
                         </div>
                         <div class="form-group">
                             <strong><label>Nombre</label></strong>

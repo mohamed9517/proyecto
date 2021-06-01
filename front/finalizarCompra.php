@@ -18,7 +18,7 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-12" style="display: flex; justify-content: center;"> 
-            <h2>Gracias por la compra</h2> <br>
+            <h2 class="m-2">Gracias por la compra</h2> <br>
             <a class="btn btn-primary" href="../index.php">Home</a> 
             </div>
         </div>

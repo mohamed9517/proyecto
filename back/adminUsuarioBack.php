@@ -1,6 +1,7 @@
 <?php
 include_once('../bd/conexion.php');
 include_once('../bd/DAOUsuario.php');
+include_once('../bd/DAOCategoria.php');
 session_start();
 
 $usua='';

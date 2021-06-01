@@ -52,41 +52,25 @@ session_start();
 <body style="background-color: #f3f2f7;">
     <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: black;" style="width: 90%;">
         <div class="container-fluid">
-
-
-
-
-
             <a class="navbar-brand text-light mr-2 " href="#"><img src="../img/LogoF16.png" alt="logo ArtFunko" style="height: 40px; width: 60px;"> </a>
             <button class="navbar-toggler  " type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon text-white"></span>
             </button>
-
-
-
-
             <div class="collapse navbar-collapse col-lg-7" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                     <li class="nav-item dropdown mr-2">
                         <a class="nav-link dropdown-toggle text-light" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <strong>PRODUCTOS</strong>
                         </a>
-
-
                         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-
-
-
                             <li>
                                 <a class="dropdown-item" href="allProductos.php"> All </a>
                             </li>
-
                             <?php
                             $resultado = allCategorias($conexion);
                             while ($row = mysqli_fetch_array($resultado)) {
                             ?>
                                 <li>
-
                                     <a class="dropdown-item" href="filtroCategoria.php?id=<?php echo $row['id_categoria'] ?>"> <?php echo $row['nombre_cat']; ?> </a>
 
                                 </li>
@@ -102,14 +86,11 @@ session_start();
                             <li><a class="dropdown-item" href="enStock.php">En stock</a></li>
                         </ul>
                     </li>
-
                 </ul>
-
             </div>
             <div class="collapse navbar-collapse col-lg-3" id="navbarScroll" style="width: 100%;">
                 <form class="d-flex mr-2">
                     <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" style="border-radius: 20px; width: 200px;">
-
                 </form>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
                     <?php if (isset($_SESSION['id_usuario'])) {
@@ -141,18 +122,14 @@ session_start();
 
                     <li class="nav-item mr-3">
                         <a class="nav-link text-light" href="#"><img src="../img/iconoIdioma2.png" alt="" style="width: 25px;"> </a>
-
                     </li>
-
                 </ul>
             </div>
-
         </div>
-
     </nav>
 
 
-
+    <!-- ------------------------------------------------------ Fin del header ------------------------------------------------ -->
 
 
 
@@ -164,65 +141,43 @@ session_start();
     ?>
     <div class="container mt-2" style="background-color: #f3f2f7;">
         <div class="row">
-
-
             <nav aria-label="breadcrumb ">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a style="text-decoration: none; color: black; " href="../index.php">Home</a></li>
                     <li class="breadcrumb-item"><a style="text-decoration: none; color: black; " href="../index.php">Descripcion</a></li>
-
-
-
                     <?php
                     $id = $_GET['id'];
-
                     $resultado = consultaProducto($conexion, $id);
                     while ($row = mysqli_fetch_array($resultado)) {
                     ?>
-
-
                         <li class="breadcrumb-item active"><a href="#"><?php echo $row['nombre_producto']  ?></a></li>
 
                     <?php }  ?>
-
-
-
                 </ol>
             </nav>
         </div>
     </div>
-    <div class="container-fluid" style="background-color: #f3f2f7;;">
 
-        <div class="row" style="background-color: white; height: 500px;">
+    <div class="container-fluid" style="background-color: #f3f2f7;;">
+        <!-- La imagen del producto y descricion -->
+        <div class="row mr-1" style="background-color: white; height: 500px;">
 
             <div class="col-md-1"></div>
-
-            
-
             <?php
             $id = $_GET['id'];
 
             $resultado = consultaProducto($conexion, $id);
             while ($row = mysqli_fetch_array($resultado)) {
             ?>
-
-                <div class="col-md-5 col-sm-12 " style=" display: flex; align-items: center; background-color: white;" >
+                <div class="col-md-5 col-sm-12 " style=" display: flex; align-items: center; background-color: white;">
                     <div class="col-md-12 col-sm-12 col-xs-12 " style="background-color: white;">
                         <div class="col-md-12 col-sm-12 col-xs-12" style="display: flex; justify-content: center;">
-                            <img class= "col-md-12 col-sm-12" src="../img/imgProductos/<?php echo $row['imagen1_producto']  ?>" alt="">
+                            <img class="col-md-12 col-sm-12" src="../img/imgProductos/<?php echo $row['imagen1_producto']  ?>" alt="">
                             <hr>
                         </div>
-
-
                     </div>
-
                 </div>
-
-
             <?php }  ?>
-
-
-
 
 
 
@@ -246,15 +201,15 @@ session_start();
                             </div>
                             <h3 class="mt-1" style="font-size: 40px;">$<?php echo $row['precio_producto']  ?></h3>
                             <?php if (!isset($_SESSION['id_usuario'])) {
-                            
-                            ?>
-                            <p>Por favor registrate para poder añadir el producto a la cesta</p>
-                            <a href="">Login</a><br>
-                            <a href="">Registrar</a>
-                            <?php }else{?>
-                            <a href="cesta.php?id=<?php echo $row['id_producto'] ?>" class="btn rounded border p-2.5 mt-4 submit2" style="background-color: white; color: black; width: 200px;">Añadir a la cesta</a>
 
-                            <?php }?>
+                            ?>
+                                <p>Por favor registrate para poder añadir el producto a la cesta</p>
+                                <a href="">Login</a><br>
+                                <a href="">Registrar</a>
+                            <?php } else { ?>
+                                <a href="cesta.php?id=<?php echo $row['id_producto'] ?>" class="btn rounded border p-2.5 mt-4 submit2" style="background-color: #f3f2f7; color: black; width: 200px;;"> <strong>Añadir a la cesta </strong> </a>
+
+                            <?php } ?>
 
                         <?php }  ?>
                         </div>
@@ -262,10 +217,13 @@ session_start();
             </div>
 
         </div>
+
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <strong><hr></strong> 
+                    <strong>
+                        <hr>
+                    </strong>
                 </div>
             </div>
             <div class="row" style="display: flex; justify-content: center;">
@@ -279,23 +237,18 @@ session_start();
                 </div>
             </div>
         </div>
-        
 
 
+        <!-- Productos recientes vistos -->
         <div class="container-fluid mt-5">
             <div class="row">
-
                 <h2 style="color: black; font-weight: 30px;">Productos vistos recientemente</h2>
-
             </div>
             <div class="row">
-
                 <?php
                 $resultado =  allProductosLimit1($conexion);
                 while ($fila = mysqli_fetch_array($resultado)) {
-
                 ?>
-
                     <div class="card col-md-3 col-sm-6 col-xm-6 mt-2 mr-1" style="width: 18rem;">
                         <img class="card-img-top" src="../img/imgProductos/<?php echo $fila['imagen1_producto']; ?>" alt="Card image cap">
                         <div class="card-body">
@@ -306,7 +259,6 @@ session_start();
                         </div>
                     </div>
                 <?php } ?>
-
             </div>
 
         </div>
@@ -328,19 +280,20 @@ session_start();
             <div class="clearfix"></div>
         </div>
         <?php $id = $_GET['id']; ?>
+    </div>
 
-        <!-- El footer de la pagina -->
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <hr>
-                </div>
+
+    <!-- El footer de la pagina -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <hr>
             </div>
         </div>
+    </div>
+    <div class="container-fluid">
         <div class="row" style="margin-bottom: 100px;">
-
             <div class="col-md-2">
-
             </div>
             <div class="col-md-2  mt-5 ">
                 <strong>
@@ -379,16 +332,18 @@ session_start();
             </div>
             <div class="col-md-1"></div>
         </div>
-        <div class="row" style="display: flex; justify-content: center;">
-            <img src="../img/iconoIdiomaN.png" alt="" width="25px;"><span>España</span>
-
+        <div>
+            <div class="row" style="display: flex; justify-content: center;">
+                <img src="../img/iconoIdiomaN.png" alt="" width="25px;"><span>España</span>
+            </div>
+            <div class="mt-3" style="display: flex; justify-content: center;">
+                <p class="text-dark">Todos los derechos reservados</p>
+            </div>
         </div>
-        <div class="mt-3" style="display: flex; justify-content: center;">
-
-            <p class="text-dark">Todos los derechos reservados</p>
-        </div>
-
     </div>
+
+
+
     <script>
         var ratedIndex = -1,
             uID = 0;

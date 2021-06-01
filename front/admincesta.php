@@ -1,69 +1,12 @@
 <?php
+
+require_once('../bd/conexion.php');
+require_once('../bd/DAOCesta.php');
+require_once('../bd/DAOCategoria.php');
 session_start();
-include '../bd/conexion.php';
 
-if (isset($_SESSION['cesta'])) {
-
-    if (isset($_GET['id'])) {
-        $arr = $_SESSION['cesta'];
-        $encontro = false;
-        $numero = 0;
-        for ($i = 0; $i < count($arr); $i++) {
-            if ($arr[$i]['Id'] == $_GET['id']) {
-                $encontro = true;
-                $numero = $i;
-            }
-        }
-
-        if ($encontro == true) {
-            $arr[$numero]['Cantidad'] = $arr[$numero]['Cantidad'] + 1;
-            $_SESSION['cesta'] = $arr;
-        } else {
-            // No hay registro
-            $nombre = "";
-            $precio = "";
-            $imagen = "";
-            $res = $conexion->query('select * from producto where id_producto=' . $_GET['id']);
-            $fila = mysqli_fetch_row($res);
-            $nombre = $fila[2];
-            $precio = $fila[4];
-            $imagen = $fila[5];
-            $arrN = array(
-                'Id' => $_GET['id'],
-                'Nombre' => $nombre,
-                'Precio' => $precio,
-                'Imagen' => $imagen,
-                'Cantidad' => 1
-            );
-            array_push($arr, $arrN);
-            $_SESSION['cesta'] = $arr;
-        }
-    }
-} else {
-    if (isset($_GET['id'])) {
-        $nombre = "";
-        $precio = "";
-        $imagen = "";
-        $res = $conexion->query('select * from producto where id_producto=' . $_GET['id']);
-        $fila = mysqli_fetch_row($res);
-        $nombre = $fila[2];
-        $precio = $fila[4];
-        $imagen = $fila[5];
-        $arr[] = array(
-            'Id' => $_GET['id'],
-            'Nombre' => $nombre,
-            'Precio' => $precio,
-            'Imagen' => $imagen,
-            'Cantidad' => 1
-        );
-        $_SESSION['cesta'] = $arr;
-    }
-}
-include '../bd/DAOCategoria.php';
 
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,16 +14,16 @@ include '../bd/DAOCategoria.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Administracion cesta</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
 </head>
 
-<body>
+
+<body style="background-color: #f3f2f7;">
     <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: black;" style="width: 90%;">
         <div class="container-fluid">
-            <a class="navbar-brand text-light mr-2 " href="../index.php"><img src="../img/LogoF16.png" alt="logo ArtFunko" style="height: 40px; width: 60px;"> </a>
+            <a class="navbar-brand text-light mr-2 " href="#"><img src="../img/LogoF16.png" alt="logo ArtFunko" style="height: 40px; width: 60px;"> </a>
             <button class="navbar-toggler  " type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon text-white"></span>
             </button>
@@ -149,86 +92,50 @@ include '../bd/DAOCategoria.php';
             </div>
         </div>
     </nav>
-    <div class="container mt-2">
+    <div class="container mt-4">
         <div class="row">
-            <nav aria-label="breadcrumb ">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a style="text-decoration: none; color: black; " href="../index.php">Home</a></li>
-                    <li class="breadcrumb-item "><a style="text-decoration: none; color: black; " href="">Descripcion</a></li>
-                    <li class="breadcrumb-item active"><a style="text-decoration: none; color: black; " href="cesta.php">Cesta</a></li>
-                </ol>
-            </nav>
+            <h1>Administracion cesta</h1>
+
         </div>
     </div>
-
-    <div class="container mt-5" style="height: 500px;">
+    <div class="container ">
         <div class="row">
+            <div class="com-md-12">
+                <?php
+                $resultado = allCesta($conexion);
 
-
-            <table class="table">
-                <thead>
-                    <tr style="background-color: #f3f2f7;">
-                        <th scope="col">Imagen</th>
-                        <th scope="col">Producto</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Cantidad</th>
-                        <th scope="col">Total</th>
-                        <th scope="col">Eliminar</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                    $total = 0;
-                    if (isset($_SESSION['cesta'])) {
-                        $cestaArr = $_SESSION['cesta'];
-                        for ($i = 0; $i < count($cestaArr); $i++) {
-                            $total = $total + ((int)$cestaArr[$i]['Precio'] * (int)$cestaArr[$i]['Cantidad']);
-                    ?>
+                ?>
+                <form action="../back/adminCategoriaBack.php" method="POST">
+                    <input type="hidden" name="id" value="<?php echo $id; ?>">
+                    <table class="table table-dark">
+                        <thead>
                             <tr>
-                                <th><img style="width: 100px;" src="../img/imgProductos/<?php echo $cestaArr[$i]['Imagen']; ?>" alt="ccc"></th>
-                                <td><?php echo $cestaArr[$i]['Nombre']; ?></td>
-                                <td><?php echo $cestaArr[$i]['Precio']; ?> $ </td>
-                                <td><input type="text" class="textCantidad" data-precio="<?php echo $cestaArr[$i]['Precio']; ?>" data-id="<?php echo $cestaArr[$i]['Id']; ?>" value="<?php echo $cestaArr[$i]['Cantidad']; ?>">
+                                <th>id pedido</th>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
 
 
-                                </td>
-                                <td class="cant<?php echo $cestaArr[$i]['Id']; ?>"> <?php echo $cestaArr[$i]['Cantidad'] * (int)$cestaArr[$i]['Precio'];   ?>$ </td>
-                                <td> <a href="" style="width: 40px;" class="btn btn-danger btn-sm btnEliminar" data-id="<?php echo $cestaArr[$i]['Id']; ?>">X</a></td>
                             </tr>
+                        </thead>
+                        <?php
+                        while ($row = $resultado->fetch_assoc()) {
+                        ?>
+                            <tbody>
+                                <tr>
+                                    <th><?php echo $row['id_pedido']; ?></th>
+                                    <th> <?php echo $row['nombre']; ?></th>
+                                    <th><?php echo $row['precio']; ?></th>
+                                    <th><?php echo $row['cantidad']; ?></th>
 
-                    <?php }
-                    } ?>
-
-
-                </tbody>
-                <tbody>
-                    <th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td> <strong>Total:</strong> <?php echo $total ?> $</td>
-                    <td> </td>
-                    </th>
-
-                </tbody>
-
-            </table>
-
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-md-12">
-                        <hr>
-                        <a href="pedido.php" style="background-color: #f3f2f7; border: solid black 1px; float: right;" class="btn">Continuar con el pedido</a>
-                    </div>
-                </div>
-
+                                </tr>
+                            </tbody>
+                        <?php } ?>
+                    </table>
+                </form>
             </div>
-
         </div>
     </div>
-
     <!-- El footer de la pagina -->
     <div class="container-fluid mt-5">
         <div class="row">
@@ -238,7 +145,7 @@ include '../bd/DAOCategoria.php';
         </div>
     </div>
 
-    <div class="row" style="margin-bottom: 100px;">
+    <div class="row" style="margin-bottom: 100px; background-color: #f3f2f7;">
 
         <div class="col-md-2">
 
@@ -280,63 +187,14 @@ include '../bd/DAOCategoria.php';
         </div>
         <div class="col-md-1"></div>
     </div>
-    <div>
-        <div class="row" style="display: flex; justify-content: center; ">
-            <img src="../img/iconoIdiomaN.png" alt="" width="25px;"><span>España</span>
-        </div>
-        <div class="mt-3" style="display: flex; justify-content: center; ">
-            <p class="text-dark">Todos los derechos reservados</p>
-        </div>
+    <div class="row" style="display: flex; justify-content: center;">
+        <img src="../img/iconoIdiomaN.png" alt="" width="25px;"><span>España</span>
     </div>
-
+    <div class="mt-3" style="display: flex; justify-content: center;">
+        <p class="text-dark">Todos los derechos reservados</p>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
-
-    <script>
-        $(document).ready(function() {
-            $(".btnEliminar").click(function(event) {
-                event.preventDefault();
-                var id = $(this).data('id');
-                var boton = $(this);
-                $.ajax({
-                    method: 'POST',
-                    url: '../back/eliminarProductoCesta.php',
-                    data: {
-                        id: id
-
-                    }
-                }).done(function(respuesta) {
-                    boton.parent('td').parent('tr').remove();
-
-                });
-            });
-
-
-
-
-            $(".textCantidad").keyup(function() {
-                var cantidad = $(this).val();
-                var precio = $(this).data('precio');
-                var id = $(this).data('id');
-                var mult = parseFloat(cantidad) * parseFloat(precio);
-                $(".cant" + id).text(mult);
-                $.ajax({
-                    method: 'POST',
-                    url: '../back/actualizarProductoCesta.php',
-                    data: {
-                        id: id,
-                        cantidad: cantidad
-
-                    }
-                }).done(function(respuesta) {
-
-
-                });
-
-            });
-        });
-    </script>
-
 </body>
 
 </html>
