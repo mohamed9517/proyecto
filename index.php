@@ -188,7 +188,7 @@ session_start();
                             <div class="col-md-5 col-sm-12 col-xm-12" style="display: flex; align-items: center;">
                                 <div>
                                     <p style="margin-top: 0px;  color: white;"> <strong>LAS FIGURAS DE NBA </strong> </p>
-                                    <button type="button" class="btn " style="border-radius: 20px; background-color: white; color: black;"><strong>SHOP COLLECTION</strong></button>
+                                    <a href="front/filtroCategoria.php?id=<?php echo 14 ?>" class="btn " style="border-radius: 20px; background-color: white; color: black;"><strong>SHOP COLLECTION</strong></a>
                                 </div>
                             </div>
                         </div>
@@ -206,7 +206,7 @@ session_start();
                                 <div>
                                     <p style="margin-top: 0px;  color: white;"> <strong>LAS FIGURAS STARWARS </strong> </p>
 
-                                    <button type="button" class="btn" style="border-radius: 20px; background-color: white; color: black;"><strong>SHOP COLLECTION</strong></button>
+                                    <a href="front/filtroCategoria.php?id=<?php echo 12 ?>" class="btn" style="border-radius: 20px; background-color: white; color: black;"><strong>SHOP COLLECTION</strong></a>
                                 </div>
                             </div>
 
@@ -255,17 +255,16 @@ session_start();
     <!-- Redes sociales -->
     <div class="container-fluid mt-5" style="background-color: black;">
         <div class="row">
-            <div class="col-md-1" style="display: flex; justify-content: center; align-items: center;">
-                <img src="img/LogoF16.png" alt="" style="width: 80px;">
+            
+            <div class="col-md-4 col.sm-8 mr-2">
+            <img src="img/LogoF16.png" alt="" style="width: 80px;">
 
-            </div>
-            <div class="col-md-3">
                 <img class="mr-1" src="img/facebook.png" alt="" style="width: 80px;">
                 <img class="mr-2" src="img/instagram.png" alt="" style="width: 70px;">
                 <img class="mr-1" src="img/twitter.png" alt="" style="width: 60px;">
 
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8 col-sm-8 ">
 
             </div>
 

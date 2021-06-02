@@ -71,16 +71,18 @@ include '../bd/DAOCategoria.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cesta</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="icon" type="image/png" href="../img/funkopng.png" />
+
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: black;" style="width: 90%;">
+<nav class="navbar navbar-expand-lg navbar-dark " style="background-color: black;" style="width: 90%;">
         <div class="container-fluid">
-            <a class="navbar-brand text-light mr-2 " href="../index.php"><img src="../img/LogoF16.png" alt="logo ArtFunko" style="height: 40px; width: 60px;"> </a>
+            <a class="navbar-brand text-light mr-2 " href="#"><img src="../img/LogoF16.png" alt="logo ArtFunko" style="height: 40px; width: 60px;"> </a>
             <button class="navbar-toggler  " type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon text-white"></span>
             </button>
@@ -229,7 +231,7 @@ include '../bd/DAOCategoria.php';
         </div>
     </div>
 
-    <!-- El footer de la pagina -->
+    <!-- Footer -->
     <div class="container-fluid mt-5">
         <div class="row">
             <div class="col-md-12">
@@ -238,54 +240,54 @@ include '../bd/DAOCategoria.php';
         </div>
     </div>
 
-    <div class="row" style="margin-bottom: 100px;">
-
-        <div class="col-md-2">
-
+    <div class="container-fluid">
+        <div class="row" style="margin-bottom: 100px;">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-2  mt-5 ">
+                <strong>
+                    <h5 class="mb-4" style="color: black;">CUENTA</h5>
+                </strong>
+                <p><a class="text-dark" href="myCuenta.php">Mi Cuenta</a></p>
+                <p><a class="text-dark" href="registrar.php">Registrar</a></p>
+                <p><a class="text-dark" href="login.php">Login</a></p>
+            </div>
+            <div class="col-md-2 mt-5 ">
+                <strong>
+                    <h5 class="mb-4">ASISTENCIA</h5>
+                </strong>
+                <p><a class="text-dark" href="">Términos y condiciones</a></p>
+                <p><a class="text-dark" href="">Políticas de privacidad</a></p>
+                <p><a class="text-dark" href="">Políticas de devoluciones</a></p>
+                <p><a class="text-dark" href="">Politicas de suscripción</a></p>
+            </div>
+            <div class="col-md-2 mt-5 ">
+                <strong>
+                    <h5 class="mb-4">ACERCA DE FUNKO</h5>
+                </strong>
+                <p><a class="text-dark" href="">Sobre nosotras</a></p>
+                <p><a class="text-dark" href="">Funko blog</a></p>
+                <p><a class="text-dark" href="">Ubicación</a></p>
+                <p><a class="text-dark" href="">Noticias</a></p>
+            </div>
+            <div class="col-md-3 mt-5 ">
+                <strong>
+                    <h5 class="mb-4">CONÉCTATE CON NOSOTROS</h5>
+                </strong>
+                <p><a class="text-dark" href="">Twitter</a></p>
+                <p><a class="text-dark" href="">Facebook</a></p>
+                <p><a class="text-dark" href="">Instagram</a></p>
+                <p><a class="text-dark" href="">Youtube</a></p>
+            </div>
+            <div class="col-md-1"></div>
         </div>
-        <div class="col-md-2  col-sm-8 col-xs-12 mt-5 ">
-            <strong>
-                <h5 class="mb-4" style="color: black;">CUENTA</h5>
-            </strong>
-            <p><a class="text-dark" href="myCuenta.php">Mi Cuenta</a></p>
-            <p><a class="text-dark" href="registrar.php">Registrar</a></p>
-            <p><a class="text-dark" href="login.php">Login</a></p>
-        </div>
-        <div class="col-md-2 col-sm-8 col-xs-12 mt-5 ">
-            <strong>
-                <h5 class="mb-4">ASISTENCIA</h5>
-            </strong>
-            <p><a class="text-dark" href="">Términos y condiciones</a></p>
-            <p><a class="text-dark" href="">Políticas de privacidad</a></p>
-            <p><a class="text-dark" href="">Políticas de devoluciones</a></p>
-            <p><a class="text-dark" href="">Politicas de suscripción</a></p>
-        </div>
-        <div class="col-md-2 mt-5 col-sm-8 col-xs-12 ">
-            <strong>
-                <h5 class="mb-4">ACERCA DE FUNKO</h5>
-            </strong>
-            <p><a class="text-dark" href="">Sobre nosotras</a></p>
-            <p><a class="text-dark" href="">Funko blog</a></p>
-            <p><a class="text-dark" href="">Ubicación</a></p>
-            <p><a class="text-dark" href="">Noticias</a></p>
-        </div>
-        <div class="col-md-3 mt-5 col-sm-8 col-xs-12">
-            <strong>
-                <h5 class="mb-4">CONÉCTATE CON NOSOTROS</h5>
-            </strong>
-            <p><a class="text-dark" href="">Twitter</a></p>
-            <p><a class="text-dark" href="">Facebook</a></p>
-            <p><a class="text-dark" href="">Instagram</a></p>
-            <p><a class="text-dark" href="">Youtube</a></p>
-        </div>
-        <div class="col-md-1"></div>
-    </div>
-    <div>
-        <div class="row" style="display: flex; justify-content: center; ">
-            <img src="../img/iconoIdiomaN.png" alt="" width="25px;"><span>España</span>
-        </div>
-        <div class="mt-3" style="display: flex; justify-content: center; ">
-            <p class="text-dark">Todos los derechos reservados</p>
+        <div>
+            <div class="row" style="display: flex; justify-content: center;">
+                <img src="../img/iconoIdiomaN.png" alt="" width="25px;"><span>España</span>
+            </div>
+            <div class="mt-3" style="display: flex; justify-content: center;">
+                <p class="text-dark">Todos los derechos reservados</p>
+            </div>
         </div>
     </div>
 

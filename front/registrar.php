@@ -11,7 +11,9 @@ session_start();
     <script src="https://kit.fontawesome.com/b57da3fc72.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <title>Login</title>
+    <title>Registro</title>
+    <link rel="icon" type="image/png" href="../img/funkopng.png" />
+
 </head>
 
 <body>
@@ -37,7 +39,7 @@ session_start();
                         <label>Primer apellido</label>
                         <input type="text" class="form-control" name="apellido1" placeholder="" id="apellido1">
                         <span id="errorApellido1"> <i class="fas fa-times" style="color: red;"></i>El primero apellido esta mal escrito</span>
-                        <i id="corectApellido1" class="fas fa-check-circle"></i>
+                        <i id="corectApellido1" style="color: green;" class="fas fa-check-circle"></i>
                     </div>
 
 
@@ -45,7 +47,7 @@ session_start();
                         <label>Segundo apellido</label>
                         <input type="text" class="form-control" name="apellido2" placeholder="" id="apellido2">
                         <span id="errorApellido2"> <i class="fas fa-times" style="color: red;"></i>El primero apellido esta mal escrito</span>
-                        <i id="corectApellido2" class="fas fa-check-circle"></i>
+                        <i id="corectApellido2" style="color: green;" class="fas fa-check-circle"></i>
                     </div>
 
 
@@ -53,23 +55,23 @@ session_start();
                         <label>Usuario</label>
                         <input type="text" class="form-control" name="usuario" placeholder="" id="usuario">
                         <span id="errorUsuario"> <i class="fas fa-times" style="color: red;"></i> El usuario esta mal escrito</span>
-                        <i id="corectUsuario" class="fas fa-check-circle"></i>
+                        <i id="corectUsuario" style="color: green;" class="fas fa-check-circle"></i>
 
                     </div>
 
 
                     <div class="form-group">
                         <label>Password</label>
-                        <input type="text" class="form-control" name="password" placeholder="" id="password">
-                        <span id="errorPassword"> <i class="fas fa-times" style="color: red;"></i> El password esta mal escritos</pan>
-                            <i id="corectPassword" class="fas fa-check-circle"></i>
+                        <input type="password" class="form-control" name="password" placeholder="" id="password">
+                        <span id="errorPassword"> <i class="fas fa-times" style="color: red;"></i> El password esta mal escritos</span>
+                            <i id="corectPassword" style="color: green;" class="fas fa-check-circle"></i>
                     </div>
 
                     <div class="form-group">
                         <label>Email</label>
                         <input type="text" class="form-control" name="email" placeholder="" id="email">
                         <span id="errorEmail"> <i class="fas fa-times" style="color: red;"></i> El email esta mal escrito</span>
-                        <i id="corectEmail" class="fas fa-check-circle"></i>
+                        <i id="corectEmail"  style="color: green;" class="fas fa-check-circle"></i>
                     </div>
 
                     <div style="display: flex; justify-content: center;">

@@ -11,6 +11,8 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <title>Login</title>
+    <link rel="icon" type="image/png" href="../img/funkopng.png" />
+
 </head>
 
 <body>

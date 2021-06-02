@@ -10,7 +10,9 @@ session_start();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <title>Login</title>
+    <title>Recuperar contraseña</title>
+    <link rel="icon" type="image/png" href="../img/funkopng.png" />
+
 </head>
 
 <body>
@@ -34,7 +36,7 @@ session_start();
                                     </div>
                                     <div class="form-group">
                                         <label for="uname1">Password</label>
-                                        <input type="text" class="form-control" name="pass1" placeholder="" id="passwordN">
+                                        <input type="password" class="form-control" name="pass1" placeholder="" id="passwordN">
                                        
                                     </div>
                                     <div class="form-group">

@@ -18,6 +18,8 @@ require_once('../bd/DAOProducto.php');
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="icon" type="image/png" href="../img/funkopng.png" />
+
 </head>
 
 <body>

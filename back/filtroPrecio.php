@@ -12,7 +12,7 @@ if (isset($_POST["action"])) {
             $output .= '
 
            
-            <div class="card col-md-3 col-sm-4 col-xm-6 mt-2 m-1" style="width: 14rem;">
+            <div class="card col-md-3 col-sm-4 col-xs-6 mt-2 mb-2" style="width: 14rem;">
             <img class="card-img-top" src="../img/imgProductos/' . $row->imagen1_producto . '" alt="Card image cap" style="width: 300px;">
             <div class="card-body">
                 <h5 class="card-title">' . $row->nombre_producto . '</h5>

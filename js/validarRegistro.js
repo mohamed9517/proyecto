@@ -65,7 +65,6 @@ const validarFormulario = (e) => {
 	switch (e.target.name) {
 		case "usuario":
 			validarUsuario(expresiones.usuario, e.target);
-		
 			break;
 		case "password":
 			validarPassword(expresiones.password, e.target);
@@ -101,13 +100,14 @@ const validarUsuario = (expresiones, input) => {
 //Esta funcion nos permitira validar el password
 const validarPassword = (expresiones, input) => {
 	if (expresiones.test(input.value)) {
+		correctPassword.style.display="block";
 		errorPassword.style.display= "none";
 		password.style.border = "2px solid green";
 		campos.password = "true";
-        correctPassword.style.display= "block";
+        
 
 	} else {
-        correctPassword.style.display= "none";
+        correctPassword.style.display="none";
 		errorPassword.style.display= "block";
 		password.style.border = "2px solid red";
 	}

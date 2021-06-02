@@ -36,12 +36,12 @@ session_start();
                                     </div>
                                     <div class="form-group">
                                         <label for="uname1"> Nueva contraseña</label>
-                                        <input type="text" class="form-control" name="pass1" placeholder="" id="passwordN">
+                                        <input type="password" class="form-control" name="pass1" placeholder="" id="passwordN">
 
                                     </div>
                                     <div class="form-group">
                                         <label> repite la contraseña </label>
-                                        <input type="text" class="form-control" name="pass2" placeholder="" id="passwordC">
+                                        <input type="password" class="form-control" name="pass2" placeholder="" id="passwordC">
 
                                     </div>
                                     <div class="bg-danger text-white mb-3" style="display: flex; justify-content: center;"><?php

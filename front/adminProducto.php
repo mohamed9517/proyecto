@@ -9,8 +9,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administracion de productos</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="icon" type="image/png" href="../img/funkopng.png" />
+
 
 </head>
+<script type="text/javascript">
+    function confirmDelet() {
+
+        var respuest = confirm("Estas seguro que quieres eliminar el producto");
+        if (respuest == true) {
+            return true;
+
+        } else {
+            return false;
+        }
+
+    }
+</script>
 
 <body style="background-color: #f3f2f7;">
     <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: black;" style="width: 90%;">
@@ -111,7 +126,7 @@
             <h1>Administracion de productos</h1>
         </div>
     </div>
-    <div class="container" style="display: flex;">
+    <div class="container-fluid" style="display: flex; justify-content: center;">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-ms-12">
                 <?php
@@ -165,9 +180,9 @@
 
                                 <th><input type="text" name="nombre" placeholder="Introduce el nombre" value="<?php echo $nombre ?>"> </th>
                                 <th><input type="text" name="descripcion" id="" placeholder="Introduce la descripcion" value="<?php echo $descripcion ?>"></th>
-                                <th><input type="text" name="precio" placeholder="Introduce el precio" value="<?php echo $precio ?>"></th>
-                                <th><input type="text" name="imagen1" id="" placeholder="Introduce el nombre de la imagen" value="<?php echo $imagen1 ?>"></th>
-                                <th><input type="text" name="stock" id="" placeholder="Introduce el Stock" value="<?php echo $stock ?>"></th>
+                                <th><input type="number" name="precio" placeholder="Introduce el precio" value="<?php echo $precio ?>"></th>
+                                <th><input type="file" name="imagen1" id="" placeholder="Introduce el nombre de la imagen" value="<?php echo $imagen1 ?>"></th>
+                                <th><input type="number" name="stock" id="" placeholder="Introduce el Stock" value="<?php echo $stock ?>"></th>
 
                                 <?php if ($editar == true) {
 
@@ -216,7 +231,7 @@
                                     <th><?php echo $row['stock_producto']; ?></th>
                                     <th>
                                         <a href="adminProducto.php?edit=<?php echo $row['id_producto'] ?>" class="btn btn-info">Editar</a>
-                                        <a href="../back/adminProductoBack.php?elimi=<?php echo $row['id_producto'] ?>" class="btn btn-danger" onclick="return confirmDelet()">Eliminar</a>
+                                        <a href="../back/adminProductoBack.php?elimi=<?php echo $row['id_producto'] ?>" class="btn btn-danger mt-1" onclick="return confirmDelet()">Eliminar</a>
                                     </th>
                                 </tr>
 
@@ -229,8 +244,8 @@
             </div>
         </div>
     </div>
-    <!-- El footer de la pagina -->
-    <div class="container-fluid mt-5">
+   <!-- Footer -->
+   <div class="container-fluid mt-5">
         <div class="row">
             <div class="col-md-12">
                 <hr>
@@ -238,53 +253,55 @@
         </div>
     </div>
 
-    <div class="row" style="margin-bottom: 100px; background-color: #f3f2f7;">
-
-        <div class="col-md-2">
-
+    <div class="container-fluid">
+        <div class="row" style="margin-bottom: 100px;">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-2  mt-5 ">
+                <strong>
+                    <h5 class="mb-4" style="color: black;">CUENTA</h5>
+                </strong>
+                <p><a class="text-dark" href="myCuenta.php">Mi Cuenta</a></p>
+                <p><a class="text-dark" href="registrar.php">Registrar</a></p>
+                <p><a class="text-dark" href="login.php">Login</a></p>
+            </div>
+            <div class="col-md-2 mt-5 ">
+                <strong>
+                    <h5 class="mb-4">ASISTENCIA</h5>
+                </strong>
+                <p><a class="text-dark" href="">Términos y condiciones</a></p>
+                <p><a class="text-dark" href="">Políticas de privacidad</a></p>
+                <p><a class="text-dark" href="">Políticas de devoluciones</a></p>
+                <p><a class="text-dark" href="">Politicas de suscripción</a></p>
+            </div>
+            <div class="col-md-2 mt-5 ">
+                <strong>
+                    <h5 class="mb-4">ACERCA DE FUNKO</h5>
+                </strong>
+                <p><a class="text-dark" href="">Sobre nosotras</a></p>
+                <p><a class="text-dark" href="">Funko blog</a></p>
+                <p><a class="text-dark" href="">Ubicación</a></p>
+                <p><a class="text-dark" href="">Noticias</a></p>
+            </div>
+            <div class="col-md-3 mt-5 ">
+                <strong>
+                    <h5 class="mb-4">CONÉCTATE CON NOSOTROS</h5>
+                </strong>
+                <p><a class="text-dark" href="">Twitter</a></p>
+                <p><a class="text-dark" href="">Facebook</a></p>
+                <p><a class="text-dark" href="">Instagram</a></p>
+                <p><a class="text-dark" href="">Youtube</a></p>
+            </div>
+            <div class="col-md-1"></div>
         </div>
-        <div class="col-md-2  col-sm-8 col-xs-12 mt-5 ">
-            <strong>
-                <h5 class="mb-4" style="color: black;">CUENTA</h5>
-            </strong>
-            <p><a class="text-dark" href="myCuenta.php">Mi Cuenta</a></p>
-            <p><a class="text-dark" href="registrar.php">Registrar</a></p>
-            <p><a class="text-dark" href="login.php">Login</a></p>
+        <div>
+            <div class="row" style="display: flex; justify-content: center;">
+                <img src="../img/iconoIdiomaN.png" alt="" width="25px;"><span>España</span>
+            </div>
+            <div class="mt-3" style="display: flex; justify-content: center;">
+                <p class="text-dark">Todos los derechos reservados</p>
+            </div>
         </div>
-        <div class="col-md-2 col-sm-8 col-xs-12 mt-5 ">
-            <strong>
-                <h5 class="mb-4">ASISTENCIA</h5>
-            </strong>
-            <p><a class="text-dark" href="">Términos y condiciones</a></p>
-            <p><a class="text-dark" href="">Políticas de privacidad</a></p>
-            <p><a class="text-dark" href="">Políticas de devoluciones</a></p>
-            <p><a class="text-dark" href="">Politicas de suscripción</a></p>
-        </div>
-        <div class="col-md-2 mt-5 col-sm-8 col-xs-12 ">
-            <strong>
-                <h5 class="mb-4">ACERCA DE FUNKO</h5>
-            </strong>
-            <p><a class="text-dark" href="">Sobre nosotras</a></p>
-            <p><a class="text-dark" href="">Funko blog</a></p>
-            <p><a class="text-dark" href="">Ubicación</a></p>
-            <p><a class="text-dark" href="">Noticias</a></p>
-        </div>
-        <div class="col-md-3 mt-5 col-sm-8 col-xs-12">
-            <strong>
-                <h5 class="mb-4">CONÉCTATE CON NOSOTROS</h5>
-            </strong>
-            <p><a class="text-dark" href="">Twitter</a></p>
-            <p><a class="text-dark" href="">Facebook</a></p>
-            <p><a class="text-dark" href="">Instagram</a></p>
-            <p><a class="text-dark" href="">Youtube</a></p>
-        </div>
-        <div class="col-md-1"></div>
-    </div>
-    <div class="row" style="display: flex; justify-content: center;">
-        <img src="../img/iconoIdiomaN.png" alt="" width="25px;"><span>España</span>
-    </div>
-    <div class="mt-3" style="display: flex; justify-content: center;">
-        <p class="text-dark">Todos los derechos reservados</p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
